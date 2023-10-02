@@ -14,7 +14,7 @@ public class MemoryExample {
     }
 
     public static void foo(int a) {
-        a++;
+        a += 2;
         System.out.println(a);
     }
 }
