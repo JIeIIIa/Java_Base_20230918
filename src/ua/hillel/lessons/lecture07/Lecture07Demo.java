@@ -4,10 +4,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Lecture07Demo {
     public static void main(String[] args) {
-//        int[] array = {1, 2, 4, 22, 5, 6, 4, 7};
-        multiDimArrays();
+        int[] array = {1, 2, 4, 22, 5, 6, 4, 7};
+        array = new int[]{1, 2, 4, 5, 6, 7, 22};
+//        multiDimArrays();
 
-
+//        sumRecursion(10);
+//        demo3();
+        System.out.println(demo5(array, -7));
     }
 
     private static void multiDimArrays() {
@@ -65,6 +68,7 @@ public class Lecture07Demo {
     /**
      * O(N)
      */
+    // g(n) == n + g(n-1);
     public static int sumRecursion(int n) {
         if (n == 1) {
             return 1;
@@ -74,7 +78,7 @@ public class Lecture07Demo {
     }
 
     /**
-     * O(N) = 3*N ~ N
+     * O(N) = 2*N ~ N
      */
     public static int sum2(int n) {
         int sum = 0;
@@ -131,20 +135,20 @@ public class Lecture07Demo {
     }
 
     /**
-     * O(N^2)
+     * O(N^2) ~ n^2 - 4*n
      * O(N) * O(N)
      */
     public static void demo3() {
         int n = 10;
         int steps = 0;
-        for (int i = 0; i < n; i++) { // n
-            for (int j = 0; j < n - 4; j++) { //
+        for (int i = 0; i < n - 4; i++) { // n
+            for (int j = 0; j < n; j++) { //
                 System.out.print(i * j + " ");
                 steps++;
             }
             System.out.println();
         }
-        System.out.println(steps); // n*(n-4) = n^2
+        System.out.println(steps); // n* (n - 4) ~ n^2
     }
 
     /**
@@ -180,15 +184,15 @@ public class Lecture07Demo {
      * Основа логорифма не береться до уваги, logA(N) = logB(N)/logB(A), а 1/logB(A) = константа:
      * O(k) = O(logN)
      */
-    public static int demo5(int arr[], int elementToSearch) {
+    public static int demo5(int[] array, int elementToSearch) {
         int firstIndex = 0;
-        int lastIndex = arr.length - 1;
+        int lastIndex = array.length - 1;
 
         while (firstIndex <= lastIndex) {
             int middleIndex = (firstIndex + lastIndex) / 2;
-            if (arr[middleIndex] == elementToSearch) {
+            if (array[middleIndex] == elementToSearch) {
                 return middleIndex;
-            } else if (arr[middleIndex] < elementToSearch) {
+            } else if (array[middleIndex] < elementToSearch) {
                 firstIndex = middleIndex + 1;
             } else {
                 lastIndex = middleIndex - 1;
