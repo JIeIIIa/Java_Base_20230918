@@ -4,13 +4,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Lecture07Demo {
     public static void main(String[] args) {
-        int[] array = {1, 2, 4, 22, 5, 6, 4, 7};
-        array = new int[]{1, 2, 4, 5, 6, 7, 22};
+        int[] array = new int[98];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ThreadLocalRandom.current().nextInt(100);
+        }
+//        int[] array = {1, 2, 4, 22, 5, 6, 4, 7};
+//        array = new int[]{1, 2, 4, 5, 6, 7, 22};
 //        multiDimArrays();
 
 //        sumRecursion(10);
 //        demo3();
-        System.out.println(demo5(array, -7));
+//        System.out.println(demo5(array, -7));
+        bubbleSort(array);
+        print(array);
     }
 
     private static void multiDimArrays() {
@@ -201,6 +207,55 @@ public class Lecture07Demo {
 
         return -1;
     }
+
+    // O(N^2)
+    public static void bubbleSort(int[] array) {
+        int step = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            System.out.printf("Step %02d: ", i);
+            for (int j = 0; j < array.length - 1; j++) {
+                step++;
+                if (array[j] > array[j + 1]) {
+                    swap(array, j);
+                }
+            }
+            print(array);
+            System.out.println();
+        }
+        System.out.println("step == " + step);
+    }
+
+    public static void bubbleSortVersion2(int[] array) {
+        int step = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                step++;
+                if (array[j] > array[j + 1]) {
+                    swap(array, j);
+                }
+            }
+            print(array);
+            System.out.println();
+        }
+        System.out.println("step == " + step);
+    }
+
+    public static void bubbleSortReverse(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] < array[j + 1]) {
+                    swap(array, j);
+                }
+            }
+        }
+    }
+
+    private static void swap(int[] array, int i) {
+        int tmp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = tmp;
+    }
+
 
     /**
      * a. Задати масив цілих чисел довжини N елементів та заповнити його рандомними числами
