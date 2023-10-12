@@ -1,9 +1,10 @@
 package ua.hillel.lessons.lecture08;
 
 public class Device {
-    String name;
+    public String name;
     String imei = "imei";
-    int length;
+    private int length;
+    protected int width;
 
 
     public Device() {
@@ -12,6 +13,7 @@ public class Device {
     }
 
     public Device(String realImei) {
+        this();
         imei = realImei;
         System.out.println("Hello from constructor with ONE argument)");
     }
@@ -22,7 +24,7 @@ public class Device {
         this.length = length;
     }
 
-    public Device(String realImei, int length, String name) {
+    private Device(String realImei, int length, String name) {
         this(realImei, length);
         this.name = name;
     }
