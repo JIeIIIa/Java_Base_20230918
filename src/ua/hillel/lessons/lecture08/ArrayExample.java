@@ -1,5 +1,6 @@
 package ua.hillel.lessons.lecture08;
 
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ArrayExample {
@@ -24,12 +25,12 @@ public class ArrayExample {
         int size = 25;
         int[] array = new int[size];
         fillArray(array);
-        System.out.println("Initial array: " + toString(array));
-        sort(array);
-        System.out.println("Sorted array: " + toString(array));
+        System.out.println("Initial array: " + Arrays.toString(array));
+        Arrays.sort(array);
+        System.out.println("Sorted array: " + Arrays.toString(array));
         swap(array, 0, array.length - 1);
-        System.out.println("Array after swap: " + toString(array));
-
+        System.out.println("Array after swap: " + Arrays.toString(array));
+        System.out.println(Arrays.binarySearch(array, 7));
     }
 
     private static void sort(int[] array) {
@@ -70,7 +71,7 @@ public class ArrayExample {
 
     private static void fillArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = ThreadLocalRandom.current().nextInt(100);
+            array[i] = ThreadLocalRandom.current().nextInt(20);
         }
     }
 }
