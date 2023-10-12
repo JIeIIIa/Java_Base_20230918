@@ -8,6 +8,7 @@ public class DeviceRunner {
         device.imei = "1234";
         System.out.println("device.imei = " + device.imei);
 
+//        Device anotherDevice = new Device("777", 42, "AwesomeDevice");
         Device anotherDevice = new Device("777", 42);
         System.out.println("anotherDevice.imei = " + anotherDevice.imei + " with length = " + anotherDevice.length);
 //        anotherDevice.imei = "777";
@@ -15,5 +16,8 @@ public class DeviceRunner {
         System.out.println("device.imei = " + anotherDevice.imei);
         System.out.println("device.imei = " + device.imei);
 
+        anotherDevice.printInfo();
+        device.printInfo();
+        anotherDevice.greeting("device");
     }
 }
