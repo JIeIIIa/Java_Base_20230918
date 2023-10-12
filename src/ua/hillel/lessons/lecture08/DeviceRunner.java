@@ -8,8 +8,8 @@ public class DeviceRunner {
         device.imei = "1234";
         System.out.println("device.imei = " + device.imei);
 
-        Device anotherDevice = new Device("777");
-        System.out.println("anotherDevice.imei = " + anotherDevice.imei);
+        Device anotherDevice = new Device("777", 42);
+        System.out.println("anotherDevice.imei = " + anotherDevice.imei + " with length = " + anotherDevice.length);
 //        anotherDevice.imei = "777";
         device.imei = "qwerty";
         System.out.println("device.imei = " + anotherDevice.imei);
