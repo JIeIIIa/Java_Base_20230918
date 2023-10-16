@@ -1,6 +1,7 @@
 package ua.hillel.lessons.lecture09;
 
 public class Device {
+    public static int count = 0;
 
     private String imei;
     private boolean enabled;
@@ -8,6 +9,7 @@ public class Device {
     public Device(String imei) {
         this.imei = imei;
     }
+
 
     public String getImei() {
         return imei;
