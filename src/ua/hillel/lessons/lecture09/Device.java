@@ -3,8 +3,8 @@ package ua.hillel.lessons.lecture09;
 public class Device {
     private static int count = 0;
 
-    private String imei;
-    private boolean enabled;
+    String imei;
+    boolean enabled;
 
     public Device(String imei) {
         this.imei = imei;
@@ -28,7 +28,7 @@ public class Device {
     }
 
     public void showInformation() {
-        System.out.println("i'm a device. My imei is " + imei);
+        System.out.println("I'm a device. My imei is " + imei);
     }
 
     public static int createdObject() {

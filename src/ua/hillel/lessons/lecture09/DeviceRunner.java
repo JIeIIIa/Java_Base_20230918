@@ -4,6 +4,20 @@ import ua.hillel.lessons.lecture09.demo.DemoDeviceRunner;
 
 public class DeviceRunner {
     public static void main(String[] args) {
+        createDevices(args);
+        System.out.println("\n\n   -= SMARTPHONES =-");
+        Smartphone smartphone = new Smartphone();
+        smartphone.showInformation();
+        Smartphone anotherSmartphone = new Smartphone("777");
+        anotherSmartphone.showInformation();
+        anotherSmartphone.showSmartphoneInfo();
+
+
+//        Device.count = -42;
+        System.out.println("We created " + Device.createdObject() + " device");
+    }
+
+    private static void createDevices(String[] args) {
         Device device = new Device("qwerty");
 
         device.showInformation();
@@ -16,8 +30,5 @@ public class DeviceRunner {
 
 
         DemoDeviceRunner.main(args);
-
-//        Device.count = -42;
-        System.out.println("We created " + Device.createdObject() + " device");
     }
 }
