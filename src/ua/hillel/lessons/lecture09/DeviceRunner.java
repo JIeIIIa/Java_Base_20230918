@@ -5,7 +5,6 @@ import ua.hillel.lessons.lecture09.demo.DemoDeviceRunner;
 public class DeviceRunner {
     public static void main(String[] args) {
         Device device = new Device("qwerty");
-        Device.count++;
 
         device.showInformation();
 
@@ -14,12 +13,11 @@ public class DeviceRunner {
         System.out.println("Device's imei is " + device.getImei());
 
         Device anotherDevice = new Device("qwerty");
-        Device.count++;
 
 
         DemoDeviceRunner.main(args);
 
-
-        System.out.println("We created " + Device.count + " device");
+//        Device.count = -42;
+        System.out.println("We created " + Device.createdObject() + " device");
     }
 }

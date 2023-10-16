@@ -1,13 +1,14 @@
 package ua.hillel.lessons.lecture09;
 
 public class Device {
-    public static int count = 0;
+    private static int count = 0;
 
     private String imei;
     private boolean enabled;
 
     public Device(String imei) {
         this.imei = imei;
+        count++;
     }
 
 
@@ -28,6 +29,10 @@ public class Device {
 
     public void showInformation() {
         System.out.println("i'm a device. My imei is " + imei);
+    }
+
+    public static int createdObject() {
+        return count;
     }
 
 }
