@@ -1,6 +1,6 @@
 package ua.hillel.lessons.lecture10;
 
-public abstract class Person implements Runnable, Writer {
+public abstract class Person extends Object implements Runnable, Writer {
     private String name;
     private String address;
 

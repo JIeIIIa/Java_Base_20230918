@@ -16,4 +16,9 @@ public class Athlete extends Person {
     public String writeBook() {
         return "Simple book";
     }
+
+    @Override
+    public String toString() {
+        return "i' m an athlete. My name is " + getName();
+    }
 }
