@@ -11,4 +11,9 @@ public class Athlete extends Person {
     public void run() {
         System.out.println("Athlete " + getName() + " is driving");
     }
+
+    @Override
+    public String writeBook() {
+        return "Simple book";
+    }
 }
