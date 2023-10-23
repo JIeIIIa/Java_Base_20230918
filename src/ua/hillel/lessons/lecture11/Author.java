@@ -2,7 +2,7 @@ package ua.hillel.lessons.lecture11;
 
 import java.util.Objects;
 
-public class Author {
+public class Author implements Cloneable {
     private String name;
     private String nickname;
     private int age;
@@ -82,5 +82,10 @@ public class Author {
         result = 31 * result + age;
 
         return result;
+    }
+
+    @Override
+    public Author clone() throws CloneNotSupportedException {
+        return (Author) super.clone();
     }
 }
