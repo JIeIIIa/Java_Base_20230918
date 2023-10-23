@@ -21,4 +21,18 @@ public class Athlete extends Person {
     public String toString() {
         return "i' m an athlete. My name is " + getName();
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Athlete)) {
+            return false;
+        }
+        Athlete other = (Athlete) object;
+
+        return (this.getName() == null && other.getName() == null) || (this.getName() != null && this.getName().equals(other.getName()));
+    }
+
 }
