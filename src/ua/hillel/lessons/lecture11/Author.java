@@ -16,6 +16,12 @@ public class Author {
         this.age = age;
     }
 
+    public Author(Author author) {
+        name = author.name;
+        nickname = author.nickname;
+        age = author.age;
+    }
+
     public String getName() {
         return name;
     }
