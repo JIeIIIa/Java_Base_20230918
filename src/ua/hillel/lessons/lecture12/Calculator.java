@@ -8,6 +8,9 @@ public class Calculator {
         for (int i = 2; i <= value; i++) {
             result *= i;
         }
+        if (result < 0) {
+            System.out.println("NoOP"); // never execute => decrease code coverage
+        }
 
         return result;
     }
