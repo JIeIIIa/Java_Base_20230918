@@ -13,5 +13,10 @@ public class Calculator {
         return result;
     }
 
+    public void throwException() {
+        String line = null;
+        line.hashCode();
+    }
+
 
 }
