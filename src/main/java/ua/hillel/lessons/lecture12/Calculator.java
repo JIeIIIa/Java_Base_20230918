@@ -1,17 +1,15 @@
 package ua.hillel.lessons.lecture12;
 
 public class Calculator {
-    // n! == 1 * a * ... * (n-1) * n;
+    // n! == 1 * a * ... * (n-1) * n == n * ( 1 * a * ... * (n-1) ) = n * (n-1)!
     // 0! == 1;
     public long factorial(int value) {
-        long result = 1;
-        for (int i = 2; i <= value; i++) {
-            result *= i;
+        System.out.println("Input value = " + value);
+        if (value <= 0) {
+            return 1;
         }
-        if (result < 0) {
-            System.out.println("NoOP"); // never execute => decrease code coverage
-        }
-
+        long result = value * factorial(value - 1);
+        System.out.println("Result " + value + "! == " + result);
         return result;
     }
 

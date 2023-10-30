@@ -1,12 +1,11 @@
 package ua.hillel.lessons.lecture12;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
     @Test
-    @Disabled
+//    @Disabled
     public void factorialOfZeroTest() {
         // given
         Calculator calculator = new Calculator();
