@@ -55,4 +55,17 @@ public class CalculatorTest {
         // then
         Assertions.assertEquals(1, result);
     }
+
+
+    @Test
+    public void factorialOfNegative() {
+        // given
+        Calculator calculator = new Calculator();
+
+        // when
+        long result = calculator.factorial(-10);
+
+        // then
+        Assertions.assertEquals(1, result);
+    }
 }
