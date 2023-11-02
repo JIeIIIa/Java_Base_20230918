@@ -25,12 +25,16 @@ public class DaysOfWeek {
     }
 
     String giveRecommendation(Day day) {
-        if (Day.MONDAY.equals(day) || Day.WEDNESDAY == day) {
-            return "Go to work!";
-        } else if (Day.SUNDAY.equals(day)) {
-            return "Have a rest)";
+        switch (day) {
+            case MONDAY:
+            case WEDNESDAY:
+                return "Go to work!";
+            case SUNDAY:
+                return "Have a rest)";
+            default:
+                return "Unexpected recommendation";
         }
-        return "Unexpected recommendation";
+
     }
 }
 
