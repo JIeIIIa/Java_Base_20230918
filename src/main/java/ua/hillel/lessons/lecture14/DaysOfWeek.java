@@ -1,5 +1,7 @@
 package ua.hillel.lessons.lecture14;
 
+import java.util.Locale;
+
 public class DaysOfWeek {
     public static void main(String[] args) {
         Day day = Day.SUNDAY;
@@ -25,16 +27,17 @@ public class DaysOfWeek {
     }
 
     String giveRecommendation(Day day) {
-        switch (day) {
-            case MONDAY:
-            case WEDNESDAY:
-                return "Go to work!";
-            case SUNDAY:
-                return "Have a rest)";
-            default:
-                return "Unexpected recommendation";
-        }
+        return switch (day) {
+            case MONDAY -> goToWork();
+            case SUNDAY -> "Have a rest)";
+            default -> "Unexpected recommendation";
+        };
 
+    }
+
+    private String goToWork() {
+        String line = "Go to work!";
+        return line.toUpperCase();
     }
 }
 
