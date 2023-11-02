@@ -1,15 +1,27 @@
 package ua.hillel.lessons.lecture14;
 
-import java.util.Objects;
-
 public class DaysOfWeek {
     public static void main(String[] args) {
         Day day = Day.SUNDAY;
+        Day monday = Day.MONDAY;
+        Day sunday = Day.SUNDAY;
+        Day wednesday = Day.WEDNESDAY;
         DaysOfWeek daysOfWeek = new DaysOfWeek();
 
         System.out.println("Recommendation for " + day + " is:");
         System.out.println(daysOfWeek.giveRecommendation(day));
         day.print();
+
+        System.out.println("\n\nEnum values:");
+        Day[] values = Day.values();
+        for (Day value : values) {
+            System.out.println(value.name() + " with ordinal==" + value.ordinal());
+        }
+
+        String line = "MONDAY";
+        Day anotherDay = Day.valueOf(line);
+        System.out.println("ValueOf returns: " + anotherDay);
+
     }
 
     String giveRecommendation(Day day) {
