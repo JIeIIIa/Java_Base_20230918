@@ -2,21 +2,18 @@ package ua.hillel.lessons.lecture14;
 
 public class DaysOfWeek {
     public static void main(String[] args) {
-        String day = "MondaY";
+        int day = -1;
         DaysOfWeek daysOfWeek = new DaysOfWeek();
 
-        System.out.println("Recommendation for " + null + " is:");
-        System.out.println(daysOfWeek.giveRecommendation((String) null));
-        System.out.println();
         System.out.println("Recommendation for " + day + " is:");
         System.out.println(daysOfWeek.giveRecommendation(day));
     }
 
-    public String giveRecommendation(String day) {
-        if ("Monday".equalsIgnoreCase(day)) {
+    public String giveRecommendation(int day) {
+        if (1 == day) {
             return "Go to work!";
-        } else if ("Sunday".equalsIgnoreCase(day)) {
-            return "Have a rast)";
+        } else if (7 == day) {
+            return "Have a rest)";
         }
         return "Unknown day";
     }
