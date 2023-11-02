@@ -4,19 +4,23 @@ import java.util.Objects;
 
 public class DaysOfWeek {
     public static void main(String[] args) {
-        Day day = new Day("MONDAY", -1);
+        Day day = new Day("MONDAY", 1);
+//        Day.MONDAY = new Day("monday", -1);
+        day = new Day("MONDAY", 1);
+        day = new Day("MONDAY", 1);
+        day = new Day("MONDAY", 1);
+        day = new Day("monday", -1);
         DaysOfWeek daysOfWeek = new DaysOfWeek();
 
         System.out.println("Recommendation for " + day + " is:");
         System.out.println(daysOfWeek.giveRecommendation(day));
+        System.out.println(daysOfWeek.giveRecommendation(Day.MONDAY));
     }
 
     public String giveRecommendation(Day day) {
-        Day monday = new Day("MONDAY", 1);
-        Day sunday = new Day("SUNDAY", 7);
-        if (monday.equals(day)) {
+        if (Day.MONDAY.equals(day)) {
             return "Go to work!";
-        } else if (sunday.equals(day)) {
+        } else if (Day.SUNDAY.equals(day)) {
             return "Have a rest)";
         }
         return "Unknown day";
@@ -24,6 +28,9 @@ public class DaysOfWeek {
 }
 
 class Day {
+    static final Day MONDAY = new Day("MONDAY", 1);
+    static final Day SUNDAY = new Day("SUNDAY", 7);
+
     private final String name;
     private final int order;
 
