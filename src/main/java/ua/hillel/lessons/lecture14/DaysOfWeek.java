@@ -4,11 +4,12 @@ import java.util.Objects;
 
 public class DaysOfWeek {
     public static void main(String[] args) {
-        Day day = Day.WEDNESDAY;
+        Day day = Day.SUNDAY;
         DaysOfWeek daysOfWeek = new DaysOfWeek();
 
         System.out.println("Recommendation for " + day + " is:");
         System.out.println(daysOfWeek.giveRecommendation(day));
+        day.print();
     }
 
     String giveRecommendation(Day day) {
@@ -21,50 +22,54 @@ public class DaysOfWeek {
     }
 }
 
-enum Day {
-    MONDAY,
-    WEDNESDAY,
-    SUNDAY;
+interface PrettyPrint {
+    void print();
+}
+enum Day implements PrettyPrint {
+    MONDAY("Monday", 1),
+    WEDNESDAY("Wednesday", 3),
+    SUNDAY("Sunday", 7, "weekend") {
+        @Override
+        public void print() {
+            System.out.println("Custom print: " + this);
+        }
+    };
 
-//    private final String name;
-//    private final int order;
+    private final String name;
+    private final int order;
+    private String prefix = "default prefix";
 
-//    private Day(String name, int order) {
-//        this.name = name;
-//        this.order = order;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public int getOrder() {
-//        return order;
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) {
-//            return true;
-//        }
-//        if (o == null || getClass() != o.getClass()) {
-//            return false;
-//        }
-//        Day day = (Day) o;
-//        return order == day.order &&
-//                ((name == day.name) || (name != null && name.equalsIgnoreCase(day.name)));
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(name, order);
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Day{" +
-//                "name='" + name + '\'' +
-//                ", order=" + order +
-//                '}';
-//    }
+    Day(String name, int order) {
+        this.name = name;
+        this.order = order;
+    }
+
+    Day(String name, int order, String prefix) {
+        this.name = name;
+        this.order = order;
+        this.prefix = prefix;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Day{" +
+                "name='" + name + '\'' +
+                ", order=" + order +
+                '}';
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Default pretty print: " + this);
+    }
 }
