@@ -13,14 +13,12 @@ public class ShapeRunner implements Runnable {
     }
 
     private void anonymousClass() {
-        class JobRunnable implements Runnable {
+        Runnable jobRunnable = new Runnable() {
             @Override
             public void run() {
                 System.out.println("Do some work...");
             }
-        }
-
-        Runnable jobRunnable = new JobRunnable();
+        };
         jobRunnable.run();
     }
 
