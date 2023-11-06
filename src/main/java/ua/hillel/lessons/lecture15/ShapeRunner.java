@@ -13,8 +13,10 @@ public class ShapeRunner implements Runnable {
     }
 
     private void anonymousClass() {
-        Runnable jobRunnable = () -> System.out.println("Do some work...");
+        int value = 42;
+        Runnable jobRunnable = () -> System.out.println("Do some work... value is " + value);
         jobRunnable.run();
+//        value++; // do not effectively final
     }
 
     private void localInnerClass() {
