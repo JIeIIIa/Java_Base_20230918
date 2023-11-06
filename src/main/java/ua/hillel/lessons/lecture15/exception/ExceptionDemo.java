@@ -7,9 +7,7 @@ public class ExceptionDemo {
             System.out.println("Result is " + result);
         } catch (WrongDataException e) {
             System.out.println("Wrong data. Please try again...");
-        } catch (CalculationException e) {
-            System.out.println("Caught an exception: " + e.getClass() + " with message " + e.getMessage());
-        } catch (RuntimeException e) {
+        } catch (CalculationException | RuntimeException e) {
             System.out.println("Caught an exception: " + e.getClass() + " with message " + e.getMessage());
         }
 
