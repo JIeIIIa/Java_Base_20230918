@@ -2,13 +2,29 @@ package ua.hillel.lessons.lecture15;
 
 import ua.hillel.lessons.lecture15.Shape.Edge;
 
-public class ShapeRunner {
+public class ShapeRunner implements Runnable {
     public static void main(String[] args) {
-//        nestedClasses();
-        localInnerClass();
+        ShapeRunner job = new ShapeRunner();
+        job.localInnerClass();
+        job.run();
+
+        Runnable runnableJob = new ShapeRunner();
+        runnableJob.run();
     }
 
-    private static void localInnerClass() {
+    private void anonymousClass() {
+        class JobRunnable implements Runnable {
+            @Override
+            public void run() {
+                System.out.println("Do some work...");
+            }
+        }
+
+        Runnable jobRunnable = new JobRunnable();
+        jobRunnable.run();
+    }
+
+    private void localInnerClass() {
         class BoldEdge extends Edge {
             public BoldEdge(int length, String color) {
                 super(length, color);
@@ -24,8 +40,15 @@ public class ShapeRunner {
         System.out.println("edge = " + edge);
     }
 
-    private static void nestedClasses() {
+    private void nestedClasses() {
         Edge edge = new Edge(10, "black");
         System.out.println("Edge is: " + edge);
+    }
+
+    @Override
+    public void run() {
+//        nestedClasses();
+//        localInnerClass();
+        anonymousClass();
     }
 }
