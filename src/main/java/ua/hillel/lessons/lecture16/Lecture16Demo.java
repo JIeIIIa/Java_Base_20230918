@@ -7,16 +7,10 @@ public class Lecture16Demo {
     }
 
     private static void autoCloseableDemo() {
-        MyResource resource = null;
-        try {
-            resource = new MyResource("pretty-file");
+        try (MyResource resource = new MyResource("pretty-file");) {
             foo();
         } finally {
-            try {
-                resource.close();
-            } catch (Exception e) {
-                /*NoOP*/
-            }
+            System.out.println("Try-with-resources FINALLY");
         }
     }
 
