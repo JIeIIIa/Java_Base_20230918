@@ -2,8 +2,18 @@ package ua.hillel.lessons.lecture16;
 
 public class Lecture16Demo {
     public static void main(String[] args) {
-        System.out.println(foo());
+//        System.out.println(foo());
+        autoCloseableDemo();
+    }
 
+    private static void autoCloseableDemo() {
+        MyResource resource = null;
+        try {
+            resource = new MyResource("pretty-file");
+            foo();
+        } finally {
+            resource.close();
+        }
     }
 
     public static String foo() {
@@ -15,8 +25,8 @@ public class Lecture16Demo {
         } finally {
             System.out.println("I'm from finally");
             if (true) {
-//                throw new CustomException("Exception from FINALLY");
-                return "Exceptional value";
+                throw new CustomException("Exception from FINALLY");
+//                return "Exceptional value";
             }
         }
 
