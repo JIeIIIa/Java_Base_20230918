@@ -5,6 +5,13 @@ public class Lecture16Demo {
 //        System.out.println(foo());
 //        autoCloseableDemo();
         interfaces();
+        polymorphism(new Interface());
+    }
+
+    private static void polymorphism(MyInterface myInterface) {
+        myInterface.foo();
+        myInterface.bar();
+
     }
 
     private static void interfaces() {
