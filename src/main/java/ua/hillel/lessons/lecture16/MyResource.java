@@ -14,5 +14,6 @@ public class MyResource implements Closeable {
     @Override
     public void close() {
         System.out.println("Close " + name);
+        throw new RuntimeException("failed");
     }
 }

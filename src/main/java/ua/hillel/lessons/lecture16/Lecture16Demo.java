@@ -12,7 +12,11 @@ public class Lecture16Demo {
             resource = new MyResource("pretty-file");
             foo();
         } finally {
-            resource.close();
+            try {
+                resource.close();
+            } catch (Exception e) {
+                /*NoOP*/
+            }
         }
     }
 
