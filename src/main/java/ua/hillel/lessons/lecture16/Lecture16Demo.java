@@ -3,7 +3,14 @@ package ua.hillel.lessons.lecture16;
 public class Lecture16Demo {
     public static void main(String[] args) {
 //        System.out.println(foo());
-        autoCloseableDemo();
+//        autoCloseableDemo();
+        interfaces();
+    }
+
+    private static void interfaces() {
+        MyInterface reference = new MyInterfaceImpl();
+        reference.foo();
+        reference.bar();
     }
 
     private static void autoCloseableDemo() {
