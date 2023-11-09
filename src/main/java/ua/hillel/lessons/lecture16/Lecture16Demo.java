@@ -4,18 +4,19 @@ public class Lecture16Demo {
     public static void main(String[] args) {
 //        System.out.println(foo());
 //        autoCloseableDemo();
-        interfaces();
-        polymorphism(new Interface());
+//        interfaces();
+        polymorphism(new ParentClass());
     }
 
-    private static void polymorphism(MyInterface myInterface) {
+    private static void polymorphism(ParentClass myInterface) {
+        ParentClass.callStatic();
+        ChildClass.callStatic();
+        myInterface.callStatic();
         myInterface.foo();
-        myInterface.bar();
-
     }
 
     private static void interfaces() {
-        MyInterface reference = new MyInterfaceImpl();
+        MyInterface reference = new ParentClass();
         reference.foo();
         reference.bar();
     }
