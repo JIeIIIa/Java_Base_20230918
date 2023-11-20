@@ -41,7 +41,7 @@ public class Point implements Cloneable {
         if (from == null || to == null) {
             return -1;
         }
-        if(from == to) {
+        if (from == to) {
             return 0;
         }
 
